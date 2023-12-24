@@ -24,15 +24,12 @@ RUN set -e \
     && ./start_postgres.sh \
     && echo "CREATE DATABASE qka;" | psql -U postgres \
     && echo "CREATE EXTENSION postgis;" | psql -U postgres -d qka \
-    && echo "SELECT 1;" | psql -U postgres -d qka \
     && ./stop_postgres.sh
 
-# Load state shape shapefiles
+# Load state shapefiles
 RUN set -e \
     && ./start_postgres.sh \
     && shp2pgsql -s 4269 -D /data/cb_2018_us_state_500k.shp states | psql -U postgres -d qka \
-    && echo "SELECT COUNT(*) from states;" | psql -U postgres -d qka \
-    && pg_dump -U postgres qka > /data/dump.sql \
     && ./stop_postgres.sh
 
 # Create runs_import and runs tables to hold run data

@@ -6,12 +6,6 @@ require_relative './helpers.rb'
 STATES = %w[AZ CO NM UT]
 LAT_LNG_REGEX = /<trkpt lat="([\-\d.]+)" lon="([\-\d.]+)">/
 
-def run_pg_query(query)
-  stdout_and_stderr, status = Open3.capture2e("psql", "-U", "postgres", "-d", "qka", "-c", query)
-  puts(stdout_and_stderr)
-  raise unless status == 0
-end
-
 def gpx_to_csv(state)
   CSV.open("/traces/#{state}.csv", "w") do |csv|
     File.open("/traces/#{state}.gpx").each do |line|
