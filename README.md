@@ -1,9 +1,11 @@
 # Four Corners Quad Keyah Analysis
 
-I ran the 2023 Four Corners Quad Keyah half marathon trail race series. After one of the races, some of the runners and
-I were wondering how much distance was in each state. For example, on the "Arizona" race, how much distance was in
-Arizona versus CO/UT/NM? This repo contains code/infra that performs this analysis. If you want to run it yourself, run
-the following commands:
+I ran the Four Corners Quad Keyah half marathon trail race series this year (2023), which was a ton of fun!. After one
+of the races, some of the runners and I were wondering how much distance was in each state. For example, in the Arizona
+race, how much distance was in AZ versus CO/UT/NM?
+
+This repo contains code/infra that performs this analysis in a hopefully-reproducible way. It uses a kinda hacky Docker
+setup to take advantage of layer caching. If you want to run it yourself, use the following commands:
 
 ```bash
 git clone https://github.com/scott113341/quad_keyah_analysis.git
@@ -56,3 +58,6 @@ and Colorado races) but it's Fine™. Links to my runs:
 - [UT](https://www.strava.com/activities/10349350045/overview)
 - [CO](https://www.strava.com/activities/10354676948/overview)
 - [NM](https://www.strava.com/activities/10360266031/overview)
+
+With this project, I finally got around to playing with PostGIS, and used ChatGPT + the JetBrains AI Assistant quite a
+bit to generate code for the libraries I'm not as familiar with.
