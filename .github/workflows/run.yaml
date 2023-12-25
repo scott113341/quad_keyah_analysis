@@ -1,0 +1,12 @@
+name: Run
+
+on:
+  - push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build -t quad_keyah_analysis:latest --progress=plain .
+      - run: docker run quad_keyah_analysis:latest
